@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dr Safa Mefteh – AI & Wireless Research</title>
+  <title>Dr Safa Mefteh – AI & Computer Vision Researcher & Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio de Dr Safa Mefteh : IA, vision par ordinateur, apprentissage fédéré et réseaux sans fil tactiques." />
+  <meta name="description" content="Portfolio of Dr Safa Mefteh, AI & Computer Vision Researcher & Developer." />
 
-  <!-- Google Fonts (optionnel, tu peux les enlever si tu veux) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0a1024;
-      --accent: #ff6b6b;
-      --accent-soft: rgba(255, 107, 107, 0.15);
-      --text-main: #f5f5ff;
-      --text-muted: #a9b1d6;
-      --card-bg: rgba(10, 16, 36, 0.9);
-      --border-subtle: rgba(255, 255, 255, 0.05);
-      --radius-xl: 18px;
-      --shadow-soft: 0 22px 45px rgba(0, 0, 0, 0.55);
-      --shadow-pill: 0 12px 30px rgba(0, 0, 0, 0.6);
-      --max-width: 1040px;
+      --bg: #f7f9fc;
+      --bg-alt: #ffffff;
+      --accent: #2f80ed;
+      --accent-soft: rgba(47, 128, 237, 0.08);
+      --accent-strong: #1b64c2;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-subtle: #e2e8f0;
+      --radius-lg: 16px;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --max-width: 1080px;
       --transition-fast: 0.18s ease-out;
     }
 
@@ -36,13 +35,9 @@
       margin: 0;
       padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1b1f3b 0, #050816 45%, #02030a 100%);
+      background: radial-gradient(circle at top, #e8f0ff 0, #f7f9fc 42%, #f5f7fb 100%);
       color: var(--text-main);
       scroll-behavior: smooth;
-    }
-
-    body {
-      line-height: 1.6;
     }
 
     a {
@@ -50,20 +45,24 @@
       text-decoration: none;
     }
 
-    /* Layout global */
+    body {
+      line-height: 1.6;
+    }
+
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
+    /* NAVBAR */
     header.navbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.92), rgba(5, 8, 22, 0.4));
-      border-bottom: 1px solid var(--border-subtle);
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 249, 252, 0.9);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
     }
 
     .nav-inner {
@@ -80,38 +79,47 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
     }
 
-    .nav-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 0 0, #ff9f9f, #ff6b6b 40%, #f5f5ff 85%);
+    .nav-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2f80ed, #56ccf2);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #050816;
-      font-weight: 800;
-      box-shadow: var(--shadow-pill);
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 8px 18px rgba(47, 128, 237, 0.35);
+    }
+
+    .nav-title-main {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 16px;
       font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
     }
 
     .nav-links a {
       position: relative;
       padding-bottom: 4px;
       color: var(--text-muted);
-      opacity: 0.9;
-      transition: color var(--transition-fast), opacity var(--transition-fast);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition-fast);
     }
 
     .nav-links a::after {
@@ -121,21 +129,20 @@
       bottom: 0;
       height: 2px;
       width: 0;
-      background: linear-gradient(90deg, #ff6b6b, #ffd66b);
       border-radius: 999px;
+      background: var(--accent);
       transition: width var(--transition-fast);
     }
 
     .nav-links a:hover {
-      color: var(--text-main);
-      opacity: 1;
+      color: var(--accent-strong);
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* Hero */
+    /* HERO */
     main {
       flex: 1;
     }
@@ -143,17 +150,17 @@
     .hero {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 40px 18px 28px;
+      padding: 32px 18px 18px;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
       align-items: center;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 14px;
     }
 
     .hero-tag {
@@ -161,21 +168,20 @@
       align-items: center;
       gap: 8px;
       padding: 6px 12px;
+      background: var(--accent-soft);
       border-radius: 999px;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      background: rgba(10, 16, 36, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
+      color: var(--accent-strong);
+      font-weight: 600;
     }
 
-    .dot-pulse {
+    .hero-tag-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: #39ffb6;
-      box-shadow: 0 0 12px rgba(57, 255, 182, 0.9);
+      background: #27ae60;
     }
 
     .hero-title {
@@ -184,31 +190,28 @@
     }
 
     .hero-title span {
-      background: linear-gradient(120deg, #ff9f9f, #ffd66b, #7af3d1);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--accent-strong);
     }
 
     .hero-subtitle {
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 580px;
+      max-width: 620px;
     }
 
     .hero-subtitle strong {
       color: var(--text-main);
-      font-weight: 500;
     }
 
     .hero-buttons {
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
+      gap: 10px;
     }
 
-    .btn-primary, .btn-ghost {
+    .btn-primary,
+    .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -216,62 +219,59 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
-      border: 1px solid transparent;
       cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
     }
 
     .btn-primary {
-      background: radial-gradient(circle at 0 0, #ffd66b, #ff6b6b 45%, #f5f5ff 100%);
-      color: #050816;
-      box-shadow: var(--shadow-pill);
+      background: linear-gradient(135deg, #2f80ed, #56ccf2);
+      color: #ffffff;
+      box-shadow: 0 10px 22px rgba(47, 128, 237, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 14px 28px rgba(47, 128, 237, 0.45);
     }
 
-    .btn-ghost {
-      background: rgba(10, 16, 36, 0.9);
-      border-color: rgba(255, 255, 255, 0.12);
-      color: var(--text-muted);
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-strong);
+      border-color: rgba(47, 128, 237, 0.35);
     }
 
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.25);
-      color: var(--text-main);
-      transform: translateY(-1px);
+    .btn-outline:hover {
+      background: rgba(47, 128, 237, 0.06);
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
       margin-top: 10px;
       font-size: 11px;
       color: var(--text-muted);
     }
 
-    .meta-item {
-      display: flex;
+    .hero-meta-item {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 5px 10px;
       border-radius: 999px;
-      background: rgba(10, 16, 36, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
     }
 
-    .meta-dot {
+    .hero-meta-dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: #ffd66b;
+      background: var(--accent);
     }
 
-    /* Hero droite : carte “profil” */
     .hero-right {
       display: flex;
       justify-content: center;
@@ -280,59 +280,36 @@
     .profile-card {
       width: 100%;
       max-width: 360px;
-      border-radius: 26px;
-      padding: 20px 18px 18px;
-      background: radial-gradient(circle at top, #202746, #050816 58%, #050816 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--bg-alt);
+      border-radius: 22px;
+      padding: 18px 18px 14px;
+      border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
     }
 
-    .profile-glow {
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at 0 0, rgba(255, 107, 107, 0.18), transparent 60%),
-                  radial-gradient(circle at 100% 0, rgba(111, 255, 222, 0.18), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .profile-main {
-      position: relative;
+    .profile-header {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
     }
 
-    .avatar-ring {
-      width: 70px;
-      height: 70px;
-      border-radius: 999px;
-      padding: 2px;
-      background: conic-gradient(from 180deg, #ff6b6b, #ffd66b, #7af3d1, #ff6b6b);
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2f80ed, #56ccf2);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .avatar-circle {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      background: radial-gradient(circle at 30% 20%, #ffd66b, #ff6b6b 45%, #050816 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #050816;
+      color: #ffffff;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .profile-name {
       font-size: 18px;
       font-weight: 600;
-      margin-top: 4px;
     }
 
     .profile-role {
@@ -341,73 +318,67 @@
     }
 
     .profile-pill {
-      margin-top: 6px;
+      margin-top: 4px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 9px;
+      padding: 4px 8px;
       border-radius: 999px;
+      background: var(--accent-soft);
       font-size: 11px;
-      background: rgba(5, 8, 22, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-    }
-
-    .profile-pill span {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      color: var(--accent-strong);
+      font-weight: 500;
     }
 
     .profile-tags {
-      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin: 10px 0 8px;
     }
 
     .chip {
       font-size: 11px;
       padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(10, 16, 36, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
       color: var(--text-muted);
     }
 
     .profile-footer {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.12);
       display: flex;
       justify-content: space-between;
       gap: 10px;
       font-size: 12px;
       color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-subtle);
+      margin-top: 6px;
     }
 
     .profile-footer span strong {
       color: var(--text-main);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* Sections */
+    /* SECTIONS */
     section {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 22px 18px;
+      padding: 24px 18px;
     }
 
     .section-heading {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 14px;
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
     }
 
@@ -415,25 +386,30 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
+      color: var(--accent-strong);
+    }
+
+    .section-note {
+      font-size: 12px;
       color: var(--text-muted);
     }
 
     .section-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
       gap: 18px;
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
       padding: 14px 14px 12px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-soft);
     }
 
     .card-title {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       margin-bottom: 6px;
     }
@@ -441,7 +417,7 @@
     .card-subtitle {
       font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .card p {
@@ -458,43 +434,48 @@
     }
 
     .badge {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 7px;
+      font-size: 11px;
+      padding: 4px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: var(--text-muted);
+      background: #eef2ff;
+      color: #3730a3;
+      border: 1px solid #e0e7ff;
     }
 
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 2px;
-      font-size: 12px;
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 13px;
       color: var(--text-muted);
     }
 
     .timeline-item {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
       gap: 8px;
     }
 
-    .timeline-bullet {
+    .timeline-marker {
       margin-top: 4px;
       width: 8px;
       height: 8px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
     }
 
-    .timeline-body span {
+    .timeline-title {
+      font-weight: 600;
       color: var(--text-main);
+      font-size: 13px;
     }
 
-    /* Tableaux "chips" projects */
+    .timeline-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
     .pill-list {
       display: flex;
       flex-direction: column;
@@ -507,11 +488,8 @@
     .pill-item {
       padding: 7px 9px;
       border-radius: 12px;
-      background: rgba(5, 8, 22, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
     }
 
     .pill-item strong {
@@ -520,15 +498,16 @@
     }
 
     .pill-meta {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-muted);
+      margin-top: 2px;
     }
 
-    /* Contact */
+    /* CONTACT */
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 16px;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 18px;
     }
 
     .contact-row {
@@ -537,43 +516,43 @@
       gap: 8px;
       font-size: 13px;
       color: var(--text-muted);
+      margin-top: 10px;
     }
 
     .contact-tag {
-      padding: 5px 9px;
+      padding: 6px 10px;
       border-radius: 999px;
-      border: 1px dashed rgba(255, 255, 255, 0.16);
-      background: rgba(5, 8, 22, 0.85);
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
     }
 
     .contact-note {
+      margin-top: 6px;
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 6px;
     }
 
     footer {
       max-width: var(--max-width);
       margin: 0 auto 16px;
-      padding: 6px 18px 0;
-      font-size: 11px;
-      color: var(--text-muted);
+      padding: 10px 18px 0;
+      border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     footer a {
-      color: var(--text-muted);
+      color: var(--accent-strong);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    /* Responsive */
-    @media (max-width: 840px) {
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
         padding-top: 26px;
@@ -589,7 +568,7 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .nav-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -597,14 +576,9 @@
 
       .nav-links {
         font-size: 11px;
-        flex-wrap: wrap;
       }
 
-      .hero {
-        padding-inline: 14px;
-      }
-
-      section {
+      section, .hero {
         padding-inline: 14px;
       }
     }
@@ -616,17 +590,17 @@
   <header class="navbar">
     <div class="nav-inner">
       <div class="nav-brand">
-        <div class="nav-logo">S</div>
+        <div class="nav-avatar">S</div>
         <div>
-          <div style="font-size:13px;">Dr Safa Mefteh</div>
-          <div style="font-size:11px;color:var(--text-muted);">AI & Wireless Research</div>
+          <div class="nav-title-main">Dr Safa Mefteh, Ph.D., Eng.</div>
+          <div class="nav-title-sub">AI & Computer Vision Researcher & Developer</div>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#about">À propos</a>
-        <a href="#research">Recherche</a>
-        <a href="#projects">Projets</a>
-        <a href="#teaching">Enseignement</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -637,125 +611,124 @@
     <section class="hero">
       <div class="hero-left">
         <div class="hero-tag">
-          <span class="dot-pulse"></span>
-          <span>AI · Computer Vision · Wireless</span>
+          <span class="hero-tag-dot"></span>
+          <span>Applied AI · Computer Vision · Edge & Robotics</span>
         </div>
 
         <h1 class="hero-title">
-          Bonjour, je suis <span>Dr Safa Mefteh</span>.
+          Hello, I’m <span>Dr Safa Mefteh</span>.
         </h1>
 
         <p class="hero-subtitle">
-          Chercheuse et ingénieure en <strong>intelligence artificielle</strong>, vision par ordinateur et
-          <strong>apprentissage fédéré pour réseaux tactiques sans fil</strong>.  
-          J’aime transformer des signaux bruts et des contraintes réelles (embarqué, défense, finance)
-          en solutions fiables, mesurables et déployables.
+          AI & Computer Vision researcher and developer with strong experience in
+          <strong>object detection, semi-supervised learning, model explainability</strong> and
+          <strong>embedded deployment on NVIDIA Jetson</strong>. I enjoy turning real-world constraints
+          into robust, measurable and deployable solutions.
         </p>
 
         <div class="hero-buttons">
-          <a href="#research" class="btn-primary">Découvrir mes travaux</a>
-          <a href="#projects" class="btn-ghost">Projets & déploiements</a>
+          <a href="#experience" class="btn-primary">View my experience</a>
+          <a href="#publications" class="btn-outline">Scientific publications</a>
         </div>
 
         <div class="hero-meta">
-          <div class="meta-item">
-            <div class="meta-dot"></div>
-            <span>Jamming detection · Modulation classification</span>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            <span>Mons · Belgium</span>
           </div>
-          <div class="meta-item">
-            <div class="meta-dot" style="background:#7af3d1;"></div>
-            <span>Edge / Jetson · TensorRT · DeepStream</span>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot" style="background:#27ae60;"></span>
+            <span>AI, Computer Vision & Machine Learning</span>
           </div>
-          <div class="meta-item">
-            <div class="meta-dot" style="background:#ff9f9f;"></div>
-            <span>Python, C++, CI/CD, Jenkins</span>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot" style="background:#f2994a;"></span>
+            <span>Object detection · SSOD · Explainability</span>
           </div>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="profile-card">
-          <div class="profile-glow"></div>
-          <div class="profile-main">
-            <div style="display:flex; align-items:center; gap:12px;">
-              <div class="avatar-ring">
-                <div class="avatar-circle">S</div>
-              </div>
-              <div>
-                <div class="profile-name">Safa Mefteh</div>
-                <div class="profile-role">Ph.D., AI & Wireless Systems</div>
-                <div class="profile-pill">
-                  <span>Actuellement</span>
-                  <span style="font-size:11px;">R&D · Belgique</span>
-                </div>
+          <div class="profile-header">
+            <div class="profile-avatar">S</div>
+            <div>
+              <div class="profile-name">Safa Mefteh</div>
+              <div class="profile-role">AI & Computer Vision Researcher & Developer</div>
+              <div class="profile-pill">
+                Currently · Computer Vision & ML researcher, Multitel
               </div>
             </div>
+          </div>
 
-            <div class="profile-tags">
-              <span class="chip">Federated & continual learning</span>
-              <span class="chip">Tactical wireless networks (SAG / SI-TNTN)</span>
-              <span class="chip">Semi-supervised object detection</span>
-              <span class="chip">Edge AI (NVIDIA Jetson)</span>
-            </div>
+          <div class="profile-tags">
+            <span class="chip">Semi-Supervised Object Detection</span>
+            <span class="chip">Object Detection Explainability</span>
+            <span class="chip">NVIDIA Jetson · GPU Computing</span>
+            <span class="chip">C++ · Python · PyTorch · OpenCV</span>
+          </div>
 
-            <div class="profile-footer">
-              <span>📡 <strong>Research</strong><br/>Jamming, ISAC, FL, RL</span>
-              <span>🧪 <strong>Industry</strong><br/>Robotics, finance, CCTV</span>
-            </div>
+          <div class="profile-footer">
+            <span>🎓 <strong>Ph.D.</strong><br/>Computer Vision & Deep Learning</span>
+            <span>🛠 <strong>Industry</strong><br/>Robotics & Smart Video Analytics</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION ABOUT -->
+    <!-- ABOUT & EDUCATION -->
     <section id="about">
       <div class="section-heading">
         <div>
-          <div class="section-kicker">Qui je suis</div>
-          <h2 class="section-title">À propos</h2>
+          <div class="section-kicker">Profile</div>
+          <h2 class="section-title">About & Education</h2>
         </div>
       </div>
 
       <div class="section-grid">
         <div class="card">
-          <div class="card-title">Profil en deux lignes</div>
+          <div class="card-title">About me</div>
           <p>
-            Je travaille à l’interface entre <strong>algorithmes avancés</strong> (apprentissage profond,
-            apprentissage fédéré, reinforcement learning) et <strong>systèmes réels</strong> (robotique de
-            sécurité, réseaux tactiques, finance temps réel).  
-            J’aime les problèmes difficiles, le code propre, et les résultats chiffrés.
+            I work at the intersection of <strong>advanced algorithms</strong> (deep learning, semi-supervised learning,
+            model interpretability) and <strong>real-world systems</strong> (security robotics, embedded AI, smart
+            video analytics). I like clear problem definitions, clean code and measurable impact — from mAP gains in
+            detection models to real-time performance on edge devices.
           </p>
-          <div class="badge-row">
-            <span class="badge">Réseaux tactiques</span>
-            <span class="badge">Vision & signaux</span>
-            <span class="badge">R&D appliquée</span>
+          <div class="badge-row" style="margin-top:10px;">
+            <span class="badge">Teamwork & communication</span>
+            <span class="badge">Motivator & team management</span>
+            <span class="badge">Hard-working · Quick learner</span>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Parcours résumé</div>
+          <div class="card-title">Education</div>
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-bullet"></div>
-              <div class="timeline-body">
-                <span>Ph.D. – Federated Learning & Jamming Detection</span><br />
-                Réseaux terrestres / non terrestres (SAG-ISAC, SI-TNTN), détection de brouilleurs, classification de signaux.
+              <div class="timeline-marker"></div>
+              <div>
+                <div class="timeline-title">Ph.D. in Computer Vision & Deep Learning</div>
+                <div class="timeline-meta">Higher School of Communication of Tunis (Sup’Com), University of Carthage · 2019–2023</div>
               </div>
             </div>
-
             <div class="timeline-item">
-              <div class="timeline-bullet"></div>
-              <div class="timeline-body">
-                <span>R&D Industrie</span><br />
-                Robotique de surveillance, Edge AI sur NVIDIA Jetson, semi-supervised object detection, intégration DeepStream / VMS.
+              <div class="timeline-marker"></div>
+              <div>
+                <div class="timeline-title">Engineer’s Degree in Computer Science</div>
+                <div class="timeline-meta">National School of Computer Science, Tunisia · 2011–2014</div>
               </div>
             </div>
-
             <div class="timeline-item">
-              <div class="timeline-bullet"></div>
-              <div class="timeline-body">
-                <span>Data & systèmes temps réel</span><br />
-                Pipelines CI/CD (Jenkins), C++/Python, performance sur systèmes de trading et infrastructure financière.
+              <div class="timeline-marker"></div>
+              <div>
+                <div class="timeline-title">Preparatory Diploma in Mathematics & Physics</div>
+                <div class="timeline-meta">Preparatory Institute for Studies of Engineers of Monastir · 2009–2011</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div>
+                <div class="timeline-title">Bachelor’s Degree in Mathematics</div>
+                <div class="timeline-meta">Hammam Sousse 2 High School, Tunisia · 2008–2009</div>
               </div>
             </div>
           </div>
@@ -763,183 +736,252 @@
       </div>
     </section>
 
-    <!-- SECTION RESEARCH -->
-    <section id="research">
+    <!-- SKILLS -->
+    <section id="skills">
       <div class="section-heading">
         <div>
-          <div class="section-kicker">Travaux scientifiques</div>
-          <h2 class="section-title">Recherche & Publications</h2>
+          <div class="section-kicker">What I work with</div>
+          <h2 class="section-title">Skills</h2>
+        </div>
+        <div class="section-note">
+          A mix of research skills, engineering practices and deployment experience.
         </div>
       </div>
 
       <div class="section-grid">
         <div class="card">
-          <div class="card-title">Axes principaux</div>
-          <p>
-            Mes travaux portent sur l’<strong>apprentissage fédéré robuste</strong> pour la
-            <strong>détection de jamming</strong> et la classification de signaux dans des réseaux tactiques
-            hybrides (espace–air–sol).  
-            J’explore aussi l’<strong>apprentissage continu</strong>, les modèles légers pour l’embarqué,
-            et la combinaison FL + RL pour adapter les agrégations au contexte radio.
-          </p>
+          <div class="card-title">Technical skills</div>
           <div class="badge-row">
-            <span class="badge">Federated learning</span>
-            <span class="badge">Continual & incremental learning</span>
-            <span class="badge">Jamming & ISAC</span>
+            <span class="badge">Computer Vision</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Image Processing</span>
+            <span class="badge">Semi-Supervised Object Detection</span>
+            <span class="badge">Segmentation & Tracking</span>
+            <span class="badge">Feature Extraction</span>
+            <span class="badge">Pseudo-labeling</span>
+            <span class="badge">Model Explainability</span>
+          </div>
+          <div class="badge-row" style="margin-top:10px;">
+            <span class="badge">Python · C++</span>
+            <span class="badge">PyTorch</span>
+            <span class="badge">OpenCV</span>
+            <span class="badge">GPU Computing</span>
+            <span class="badge">ROS</span>
+            <span class="badge">NVIDIA Jetson Orin</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Git</span>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Exemples de contributions</div>
-          <div class="pill-list">
-            <div class="pill-item">
-              <strong>FL-enabled jamming detection & waveform classification</strong>
-              <div class="pill-meta">
-                Framework pour réseaux tactiques distribués avec signaux non-iid, brouilleurs multiples et contraintes de confidentialité.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>MVN-based weighting & personalized local models</strong>
-              <div class="pill-meta">
-                Agrégation pondérée selon la distribution latente des signaux, prise en compte de profils hétérogènes (sensing vs communication).
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>Deep RL pour pondération dynamique</strong>
-              <div class="pill-meta">
-                Deep Q-Learning pour adapter les poids d’agrégation en fonction de l’environnement radio et du comportement des jammers.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION PROJECTS -->
-    <section id="projects">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">R&D appliquée</div>
-          <h2 class="section-title">Projets & Déploiements</h2>
-        </div>
-      </div>
-
-      <div class="section-grid">
-        <div class="card">
-          <div class="card-title">Sélection de projets</div>
-          <div class="pill-list">
-            <div class="pill-item">
-              <strong>Robot de surveillance – détection d’intrusion temps réel</strong>
-              <div class="pill-meta">
-                YOLO/SSOD, multi-caméras, NVIDIA Jetson, intégration VMS, suivi d’objets et déclenchement d’alertes.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>Pipeline de modulations LTE/5G</strong>
-              <div class="pill-meta">
-                Prétraitement IQ, extraction de caractéristiques (spectrogrammes, constellations), ResNet & modèles légers, classification robuste aux fades.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>CI/CD pour systèmes financiers</strong>
-              <div class="pill-meta">
-                Jenkins, packaging C++/Java, intégration XLD, automatisation du déploiement, contrôle qualité sur environnements multiples.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Technos & outils</div>
-          <p style="margin-bottom:6px;">
-            J’aime mélanger recherche et ingénierie : partir d’une idée théorique, la prototyper en Python,
-            puis l’optimiser, la packager et la déployer dans un environnement réel.
-          </p>
-          <div class="badge-row">
-            <span class="badge">Python · PyTorch · TensorFlow</span>
-            <span class="badge">NVIDIA Jetson · TensorRT · DeepStream</span>
-            <span class="badge">C++ · Linux · Docker</span>
-            <span class="badge">Jenkins · GitHub · Git</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION TEACHING -->
-    <section id="teaching">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Transmission</div>
-          <h2 class="section-title">Enseignement & Encadrement</h2>
-        </div>
-      </div>
-
-      <div class="section-grid">
-        <div class="card">
-          <div class="card-title">Encadrement & pédagogie</div>
+          <div class="card-title">Soft skills & languages</div>
           <p>
-            J’encadre des étudiants sur des sujets liés à l’IA appliquée, l’apprentissage incrémental,
-            et le traitement du signal.  
-            J’essaie toujours de relier la théorie à des cas concrets (données réelles, contraintes
-            matérielles, délais de production).
+            I enjoy leading and mentoring, structuring complex projects and creating a collaborative environment
+            where research and development reinforce each other.
           </p>
+          <div class="badge-row" style="margin-top:10px;">
+            <span class="badge">Team leadership</span>
+            <span class="badge">Project ownership</span>
+            <span class="badge">Cross-functional collaboration</span>
+          </div>
+          <div class="badge-row" style="margin-top:14px;">
+            <span class="badge">French · Native / Fluent</span>
+            <span class="badge">Arabic · Native</span>
+            <span class="badge">English · Fluent</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Career path</div>
+          <h2 class="section-title">Experience</h2>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">Computer Vision & ML Researcher & Developer</div>
+          <div class="card-subtitle">Multitel · Jun 2023 – Present · Mons, Belgium</div>
+          <div class="pill-list">
+            <div class="pill-item">
+              <strong>Interpretation Toolbox for Object Detection</strong>
+              <div class="pill-meta">
+                Designed a toolbox to visually and automatically interpret object detection models by clustering detections
+                into error types (misclassification, localization, background detections, duplicates, missed objects) and
+                linking them to mAP drops. Developed pixel-level perturbation-based explainability to understand which
+                parts of the image drive model predictions.
+              </div>
+            </div>
+            <div class="pill-item">
+              <strong>Advanced Semi-Supervised Object Detection (SSOD)</strong>
+              <div class="pill-meta">
+                Led an SSOD project achieving +3 mAP over state-of-the-art baselines by integrating foundation models
+                such as Grounding-DINO and YOLO-World, and an additional +6 mAP through a redesigned pseudo-labeling
+                pipeline with multi-view and fusion-based optimization. Validated on large multi-domain datasets and
+                deployed on NVIDIA Jetson Orin with real-time performance and robustness.
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Exemples de thèmes</div>
+          <div class="card-title">Senior ML & Computer Vision R&D Engineer · AI Team Lead (P-Guard Robot)</div>
+          <div class="card-subtitle">Enova Robotics · Jan 2019 – May 2023 · Tunisia</div>
           <div class="pill-list">
             <div class="pill-item">
-              <strong>Apprentissage incrémental pour classification de signaux</strong>
-              <div class="pill-meta">Gestion du forgetting, EWC, replay buffer, architectures légères.</div>
+              <strong>Autonomous Charging Station</strong>
+              <div class="pill-meta">
+                Implemented cosses detection and tracking to automatically connect the robot to a charging station, ensuring
+                maximum autonomy using computer vision control on an X–Y table.
+              </div>
             </div>
             <div class="pill-item">
-              <strong>Détection d’objets semi-supervisée</strong>
-              <div class="pill-meta">Labeling efficace, pseudo-labels, déploiement sur Jetson.</div>
+              <strong>Intrusion Detection (Day & Night)</strong>
+              <div class="pill-meta">
+                Designed and deployed a smart intrusion detection solution combining optical and thermal cameras, running on
+                NVIDIA Jetson Nano via DeepStream SDK, integrated with Milestone XProtect VMS for alarm generation.
+              </div>
             </div>
             <div class="pill-item">
-              <strong>FL sur réseaux hétérogènes</strong>
-              <div class="pill-meta">Non-iid, agrégation pondérée, contraintes de communication.</div>
+              <strong>Obstacle Detection & Fence Anomaly Detection</strong>
+              <div class="pill-meta">
+                Processed 3D LiDAR data for obstacle detection and classification; developed a solution to classify broken vs.
+                normal fences using Pix2Pix GAN, segmentation and CNN-based classification.
+              </div>
+            </div>
+            <div class="pill-item">
+              <strong>Project Management & Automation</strong>
+              <div class="pill-meta">
+                Led several projects including mission scheduling for P-Guard, healthcare robot data analysis, Milestone–PGMS
+                integration, supervision of a PhD (INNOV-TMSDEVICE) awarded Best National Doctoral Thesis 2024, and
+                automation tests (PAT) using Python, Robot Framework and CI/CD tools.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">Computer Vision Researcher</div>
+          <div class="card-subtitle">Sup’Com · Oct 2015 – Dec 2018</div>
+          <p>
+            Research on human posture recognition, including multispectral descriptors and edge detection methods.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Computer Vision Developer</div>
+          <div class="card-subtitle">Dot It Edition · Aug 2014 – Oct 2015</div>
+          <p>
+            Developed computer vision components for various web and software projects, contributing to applications such
+            as Yedess, GIREVE, AlMurafek and others.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Scientific work</div>
+          <h2 class="section-title">Publications & Reviewing</h2>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">Selected journal & conference papers</div>
+          <div class="pill-list">
+            <div class="pill-item">
+              <strong>Multispectral corner detector & local descriptor</strong>
+              <div class="pill-meta">
+                “A novel multispectral corner detector and a new local descriptor: an application to human posture recognition.”
+                Multimedia Tools and Applications, 2023.
+              </div>
+            </div>
+            <div class="pill-item">
+              <strong>Lab-Depth HOG Descriptors for human postures</strong>
+              <div class="pill-meta">
+                “Learning Human Postures using Lab-Depth HOG Descriptors.” ICCCI 2023, Springer LNAI.
+              </div>
+            </div>
+            <div class="pill-item">
+              <strong>Multispectral edge detector for occluded color images</strong>
+              <div class="pill-meta">
+                “A Novel Multispectral Lab-depth based Edge Detector for Color Images with Occluded Objects.”
+                VISAPP 2019.
+              </div>
+            </div>
+            <div class="pill-item">
+              <strong>Vision transformer for posture recognition</strong>
+              <div class="pill-meta">
+                “Human Posture Recognition based on a novel vision transformer using a multispectral Lab-D HoG Descriptor.”
+                AFJASSST, 2022.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Program committee & reviewing</div>
+          <p>
+            I regularly act as a reviewer for international conferences in AI and intelligent environments.
+          </p>
+          <div class="pill-list" style="margin-top:8px;">
+            <div class="pill-item">
+              <strong>IJCAI</strong>
+              <div class="pill-meta">International Joint Conference on Artificial Intelligence (A* ranking), 2025.</div>
+            </div>
+            <div class="pill-item">
+              <strong>ECAI</strong>
+              <div class="pill-meta">European Conference on Artificial Intelligence (A ranking), 2025.</div>
+            </div>
+            <div class="pill-item">
+              <strong>International Conference on Intelligent Environments (IE)</strong>
+              <div class="pill-meta">B-ranked conference, 2025.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION CONTACT -->
+    <!-- CONTACT -->
     <section id="contact">
       <div class="section-heading">
         <div>
-          <div class="section-kicker">Restons en contact</div>
+          <div class="section-kicker">Get in touch</div>
           <h2 class="section-title">Contact</h2>
         </div>
       </div>
 
       <div class="contact-grid">
         <div class="card">
-          <div class="card-title">Me joindre</div>
+          <div class="card-title">Let’s talk</div>
           <p>
-            Pour toute collaboration, question scientifique ou opportunité (recherche, R&D, enseignement),
-            n’hésitez pas à m’écrire.  
-            Je suis particulièrement intéressée par les projets mêlant
-            <strong>IA embarquée</strong>, <strong>réseaux tactiques</strong> et
-            <strong>sécurité/sûreté</strong>.
+            I am open to collaborations, R&D opportunities, and discussions around AI for computer vision, semi-supervised
+            learning, embedded deployment and intelligent video analytics.
           </p>
-          <div class="contact-row" style="margin-top:10px;">
-            <div class="contact-tag">📧 &nbsp; <strong>Adresse e-mail</strong> – &lt;ton.email@domaine.com&gt;</div>
-            <div class="contact-tag">🔗 &nbsp; GitHub – <strong>@meftehs</strong></div>
-            <!-- Tu peux ajouter LinkedIn / Google Scholar ici -->
+          <div class="contact-row">
+            <div class="contact-tag">📧 mefteh.safa9@gmail.com</div>
+            <div class="contact-tag">📍 Mons, Belgium</div>
+            <div class="contact-tag">🔗 LinkedIn · linkedin.com/in/mefteh-safa</div>
+            <div class="contact-tag">💼 GitHub · github.com/meftehs</div>
           </div>
           <div class="contact-note">
-            👉 Remplace l’e-mail ci-dessus par ton vrai e-mail (ou laisse vide si tu préfères rester discrète).
+            Feel free to reach out in English or French.
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">En bref</div>
+          <div class="card-title">Quick summary</div>
           <p>
-            IA, signaux, systèmes réels.  
-            Si votre problème touche à des données difficiles, des contraintes matérielles,
-            ou à des réseaux sans fil “pas propres”, on aura sûrement des choses à se dire.
+            Ph.D.-level AI & Computer Vision profile with strong industrial experience in robotics and embedded systems.
+            I like projects where research and engineering are both required to reach production quality.
           </p>
         </div>
       </div>
@@ -948,18 +990,13 @@
 
   <!-- FOOTER -->
   <footer>
-    <div>© <span id="year"></span> Safa Mefteh. Tous droits réservés.</div>
-    <div>
-      Site statique hébergé sur
-      <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
-    </div>
+    <div>© <span id="year"></span> Safa Mefteh. All rights reserved.</div>
+    <div>Static site hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</div>
   </footer>
 </div>
 
 <script>
-  // Met automatiquement l'année en bas de page
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
