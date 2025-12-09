@@ -294,7 +294,7 @@
       margin-bottom: 10px;
     }
 
-    .profile-avatar {
+    /* .profile-avatar {
       width: 64px;
       height: 64px;
       border-radius: 50%;
@@ -305,6 +305,22 @@
       color: #ffffff;
       font-size: 28px;
       font-weight: 700;
+    } */
+
+    .profile-avatar {
+      width: 80px;          /* adjust if you want bigger/smaller */
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #e5f0ff;  /* soft background behind the circle */
+      box-shadow: 0 8px 18px rgba(47, 128, 237, 0.25);
+    }
+
+  .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;         /* avoids distortion */
+      image-rendering: auto;     /* let browser smooth normally */
     }
 
     .profile-name {
@@ -650,13 +666,16 @@
       <div class="hero-right">
         <div class="profile-card">
           <div class="profile-header">
-            <div class="profile-avatar" style="
+            <!-- <div class="profile-avatar" style="
                 width:90px;
                 height:90px;
                 border-radius:50%;
                 overflow:hidden;
                 box-shadow:0 8px 18px rgba(47,128,237,0.25);">
               <img src="safa2.png" alt="Safa Mefteh" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+            </div> -->
+            <div class="profile-avatar">
+              <img src="safa2.png" alt="Safa Mefteh">
             </div>
             <div>
               <div class="profile-name">Safa Mefteh</div>
