@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interpretation Toolbox for Object Detection – Dr Safa Mefteh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Option 1 : tu copies le même <style> que dans index.html -->
+  <!-- Option 2 (plus propre) : tu mets ton CSS dans style.css et tu fais : -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<body>
+<div class="page">
+  <!-- Même navbar que dans index.html -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-avatar">S</div>
+        <div>
+          <div class="nav-title-main">Dr Safa Mefteh, Ph.D., Eng.</div>
+          <div class="nav-title-sub">AI & Computer Vision Researcher & Developer</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Project</div>
+          <h1 class="section-title">Interpretation Toolbox for Object Detection</h1>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>
+          Here you can write a more detailed description:
+          context of the project, goals, datasets, models (YOLO, Faster R-CNN, etc.),
+          evaluation metrics, main challenges, and your concrete contributions.
+        </p>
+
+        <ul>
+          <li>Goal: help understand detection errors and their impact on mAP.</li>
+          <li>Methods: error clustering, perturbation-based explanations, etc.</li>
+          <li>Tech stack: PyTorch, Python, Jupyter, internal datasets…</li>
+          <li>Impact: used by team / partners, guided model improvements, etc.</li>
+        </ul>
+
+        <p>
+          <a href="index.html#experience" class="btn-outline">← Back to experience</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Safa Mefteh. All rights reserved.</div>
+    <div>Static site hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
