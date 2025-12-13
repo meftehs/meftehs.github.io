@@ -260,34 +260,106 @@
       <div class="section-grid">
         <div class="card">
           <div class="card-header-left">
-              <img src="imgs/multitel.png" alt="Multitel Logo" class="company-logo">
-              <div>
-                <div class="card-title">Computer Vision &amp; ML Researcher &amp; Developer</div>
-                <div class="card-subtitle">Multitel · Jun 2023 – Present · Mons, Belgium</div>
-              </div>
+            <img src="imgs/multitel.png" alt="Multitel Logo" class="company-logo">
+            <div>
+              <div class="card-title">Computer Vision &amp; ML Researcher &amp; Developer</div>
+              <div class="card-subtitle">Multitel · Jun 2023 – Present · Mons, Belgium</div>
+            </div>
           </div>
 
           <div class="pill-list">
+            <!-- Project 1: SSOD -->
+            <div class="pill-item">
+              <strong>Advanced Semi-Supervised Object Detection (SSOD) for Real-Time Edge Deployment</strong>
+              <div class="pill-meta">
+                <p>
+                  Large-scale, high-quality annotations are often <strong>scarce</strong> and <strong>costly</strong>. 
+                  Semi-supervised learning leverages abundant <strong>unlabeled data</strong> to preserve strong detection performance 
+                  while reducing annotation dependency. A key challenge is minimizing the <strong>distribution gap</strong> between 
+                  labeled and unlabeled data—especially across diverse and dynamic contexts. Another critical issue is generating 
+                  <strong>reliable pseudo-labels</strong>, since early errors can propagate and degrade overall performance.
+                </p>
+
+                <p>
+                  To address these challenges, we designed and deployed a <strong>real-time SSOD framework</strong> for one-stage 
+                  RGB video analysis on <strong>edge devices</strong>. Our approach integrates foundation models 
+                  (<strong>Grounding-DINO</strong> and <strong>YOLO-World</strong>) to improve object coverage and semantic robustness, 
+                  achieving a <strong>+3 mAP</strong> improvement over state-of-the-art baselines. In addition, we introduced a 
+                  redesigned pseudo-labeling strategy combining <strong>multi-view consistency</strong> with 
+                  <strong>fusion-based optimization</strong>, reducing label noise and narrowing the labeled–unlabeled domain gap, 
+                  yielding a further <strong>+4 mAP</strong> gain.
+                </p>
+
+                <p>
+                  The framework was validated across <strong>multiple domains</strong> and optimized for <strong>real-time inference</strong> 
+                  on <strong>NVIDIA Jetson</strong> platforms, demonstrating both <strong>robustness</strong> and 
+                  <strong>deployment-level efficiency</strong>.
+                </p>
+              </div>
+            </div>
+            <!-- Project 2: Interpretation Toolbox -->
             <div class="pill-item">
               <strong>Interpretation Toolbox for Object Detection</strong>
               <div class="pill-meta">
-                Designed a toolbox to visually and automatically interpret object detection models by clustering detections
-                into error types (misclassification, localization, background detections, duplicates, missed objects) and
-                linking them to mAP drops. Developed pixel-level perturbation-based explainability to understand which
-                parts of the image drive model predictions.
+                <p>
+                  <strong>Mean Average Precision (mAP)</strong> is the standard metric for evaluating object detection models, yet it provides only
+                  a global performance score and offers limited insight into <strong>why</strong> a model succeeds or fails. A degradation in mAP may
+                  originate from diverse error sources, such as <strong>misclassification</strong>, <strong>inaccurate localization</strong>,
+                  <strong>missed detections</strong>, <strong>background false positives</strong>, or <strong>duplicated predictions</strong>.
+                  Moreover, factors like <strong>object scale</strong>, <strong>distance to the camera</strong>, and <strong>visual conditions</strong>
+                  can significantly affect detection quality, making a deeper and more structured analysis essential.
+                </p>
+
+                <p>
+                  To address these limitations, we developed an <strong>interpretation toolbox</strong> for object detection that enables a fine-grained,
+                  diagnostic evaluation of model behavior. The toolbox automatically categorizes detection errors—including
+                  <strong>classification errors</strong>, <strong>localization errors</strong>, <strong>combined classification–localization errors</strong>,
+                  <strong>missed objects</strong>, <strong>background false positives</strong>, and <strong>duplicate detections</strong>—and explicitly links
+                  each error type to its contribution to <strong>mAP degradation</strong>. This allows practitioners to move beyond a single aggregate metric
+                  and systematically identify the dominant sources of performance loss.
+                </p>
+
+                <p>
+                  The toolbox decomposes mAP into interpretable error components and
+                  quantifies the upper-bound performance achievable under perfect error correction. Detection results are visualized through an
+                  <strong>interactive interface</strong> where objects are grouped by error type, enabling rapid identification of systematic failure modes
+                  (e.g., poor performance on <strong>small</strong> or <strong>distant</strong> objects). To further uncover patterns across errors, detected
+                  objects are clustered by applying a visual feature extraction, followed by a dimensionality
+                  reduction for intuitive 2D visualization of error clusters.
+                </p>
+
+                <p>
+                  In addition, the toolbox integrates <strong>pixel-level</strong>, perturbation-based explainability by generating
+                  <strong>saliency maps</strong> that highlight the image regions most influential for each detection. This enables inspection of the model’s
+                  internal decision process, revealing whether critical semantic cues—such as <strong>wheels</strong> in daylight scenes or
+                  <strong>headlights</strong> at night for vehicle detection—are effectively leveraged. When such cues are absent or ignored, the toolbox helps
+                  explain persistent misdetections or misclassifications.
+                </p>
+
+                <p>
+                  Overall, this interpretation toolbox provides a comprehensive <strong>visual</strong> and <strong>quantitative</strong> analysis framework for
+                  object detection models, improving <strong>trust</strong>, <strong>transparency</strong>, and <strong>diagnostic accuracy</strong>. It supports
+                  informed model debugging, targeted data augmentation, and architecture refinement, making it particularly valuable for evaluating and
+                  deploying object detection systems in <strong>real-world</strong> and <strong>safety-critical</strong> applications.
+                </p>
               </div>
-              <a class="pill-link" href="interpretation-toolbox.html">Read more →</a>
+              <!-- <a class="pill-link" href="interpretation-toolbox.html">
+                <span class="pill-icon">📖</span>
+                Read more
+              </a> -->
+            </div>
+            <!-- Project 3: VMS Integration -->
+            <div class="pill-item">
+              <strong>Edge-to-VMS Integration for Real-Time Video Analytics</strong>
+              <div class="pill-meta">
+                Integrated embedded detection models into a Video Management System (VMS) by connecting
+                <strong>NVIDIA Jetson Orin</strong> inference pipelines to centralized video servers.
+                Implemented custom bridging functions inspired by DeepStream SDK VPS–Milestone workflows,
+                enabling event streaming, metadata forwarding, and simulation of licensed VMS analytics features
+                for seamless operational deployment.
+              </div>
             </div>
 
-            <div class="pill-item">
-              <strong>Advanced Semi-Supervised Object Detection (SSOD)</strong>
-              <div class="pill-meta">
-                Led an SSOD project achieving +3 mAP over state-of-the-art baselines by integrating foundation models 
-                such as Grounding-DINO and YOLO-World, and an additional +6 mAP through a redesigned pseudo-labeling 
-                pipeline with multi-view and fusion-based optimization. Validated on multi-domain datasets and deployed 
-                on NVIDIA Jetson Orin with real-time performance and robustness.
-              </div>
-            </div>
           </div>
         </div>
 
@@ -342,8 +414,7 @@
           </div>
         </div>
 
-      <div class="section-grid">
-
+      <!-- <div class="section-grid"> -->
         <div class="card">
           <div class="card-header-left">
               <img src="imgs/supcom.png" alt="supcom Logo" class="company-logo">
@@ -351,7 +422,7 @@
                 <div class="card-title">Computer Vision Researcher</div>
                 <div class="card-subtitle">Sup’Com · Oct 2015 – Dec 2018</div>
                 <p>
-                  Research on human posture recognition, including multispectral descriptors and edge detection methods.
+                    Research on human posture recognition, including multispectral descriptors and edge detection methods.
                 </p>
               </div>
           </div>          
@@ -369,7 +440,6 @@
                   </p>
               </div>
           </div>
-          
         </div>
       </div>
     </section>
@@ -424,7 +494,7 @@
           </p>
           <div class="pill-list" style="margin-top:8px;">
             <div class="pill-item">
-              <a href="https://www.ecai2025.eu" target="_blank" rel="noopener noreferrer">
+              <a href="https://ecai2025.org/program-committee/" target="_blank" rel="noopener noreferrer">
                 <strong>ECAI</strong>
               </a>
               <div class="pill-meta">
