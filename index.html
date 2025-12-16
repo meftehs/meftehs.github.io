@@ -18,6 +18,51 @@
   <link rel="icon" type="image/png" href="imgs/safa_71x64.png">
 
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = Array.from(document.querySelectorAll(".pill-item"));
+
+  function needsToggle(el) {
+    el.setAttribute("data-collapsed", "false");
+    const full = el.scrollHeight;
+    el.setAttribute("data-collapsed", "true");
+    const clamped = el.getBoundingClientRect().height;
+    return full > clamped + 2;
+  }
+
+  items.forEach(item => {
+    const text = item.querySelector(".exp-text");
+    const btn  = item.querySelector(".exp-toggle");
+    if (!text || !btn) return;
+
+    if (!needsToggle(text)) {
+      btn.classList.add("is-hidden");
+      text.setAttribute("data-collapsed", "false");
+      return;
+    }
+
+    btn.addEventListener("click", () => {
+      const collapsed = text.getAttribute("data-collapsed") === "true";
+
+      items.forEach(other => {
+        if (other === item) return;
+        const ot = other.querySelector(".exp-text");
+        const ob = other.querySelector(".exp-toggle");
+        if (ot && ob && !ob.classList.contains("is-hidden")) {
+          ot.setAttribute("data-collapsed", "true");
+          ob.textContent = "Read more";
+        }
+      });
+
+      text.setAttribute("data-collapsed", collapsed ? "false" : "true");
+      btn.textContent = collapsed ? "Read less" : "Read more";
+    });
+  });
+});
+</script>
+
+
 <body>
 <div class="page">
   <!-- NAVBAR -->
@@ -272,6 +317,7 @@
             <div class="pill-item">
               <strong>Advanced Semi-Supervised Object Detection (SSOD) for Real-Time Edge Deployment</strong>
               <div class="pill-meta">
+                <div class="exp-text" data-collapsed="true">
                 <p>
                   Large-scale, high-quality annotations are often <strong>scarce</strong> and <strong>costly</strong>. 
                   Semi-supervised learning leverages abundant <strong>unlabeled data</strong> to preserve strong detection performance 
@@ -295,20 +341,26 @@
                   on <strong>NVIDIA Jetson</strong> platforms, demonstrating both <strong>robustness</strong> and 
                   <strong>deployment-level efficiency</strong>.
                 </p>
+                  
               </div>
+                
+              </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
             <!-- Project 2: Interpretation Toolbox -->
             <div class="pill-item">
               <strong>Interpretation Toolbox for Object Detection</strong>
               <div class="pill-meta">
-                <p>
-                  <strong>Mean Average Precision (mAP)</strong> is the standard metric for evaluating object detection models, yet it provides only
-                  a global performance score and offers limited insight into <strong>why</strong> a model succeeds or fails. A degradation in mAP may
-                  originate from diverse error sources, such as <strong>misclassification</strong>, <strong>inaccurate localization</strong>,
-                  <strong>missed detections</strong>, <strong>background false positives</strong>, or <strong>duplicated predictions</strong>.
+                <div class="exp-text" data-collapsed="true">
+                  <p>
+                    <strong>Mean Average Precision (mAP)</strong> is the standard metric for evaluating object detection models, yet it provides only
+                    a global performance score and offers limited insight into <strong>why</strong> a model succeeds or fails. A degradation in mAP may
+                    originate from diverse error sources, such as <strong>misclassification</strong>, <strong>inaccurate localization</strong>,
+                    <strong>missed detections</strong>, <strong>background false positives</strong>, or <strong>duplicated predictions</strong>.
+                  </p>
                   Moreover, factors like <strong>object scale</strong>, <strong>distance to the camera</strong>, and <strong>visual conditions</strong>
                   can significantly affect detection quality, making a deeper and more structured analysis essential.
-                </p>
+                <!-- </p> -->
 
                 <p>
                   To address these limitations, we developed an <strong>interpretation toolbox</strong> for object detection that enables a fine-grained,
@@ -343,6 +395,8 @@
                   deploying object detection systems in <strong>real-world</strong> and <strong>safety-critical</strong> applications.
                 </p>
               </div>
+              </div>
+              <button class="exp-toggle" type="button">Read more</button>
               <!-- <a class="pill-link" href="interpretation-toolbox.html">
                 <span class="pill-icon">📖</span>
                 Read more
@@ -352,12 +406,15 @@
             <div class="pill-item">
               <strong>Edge-to-VMS Integration for Real-Time Video Analytics</strong>
               <div class="pill-meta">
+                <div class="exp-text" data-collapsed="true">
                 Integrated embedded detection models into a Video Management System (VMS) by connecting
                 <strong>NVIDIA Jetson Orin</strong> inference pipelines to centralized video servers.
                 Implemented custom bridging functions inspired by DeepStream SDK VPS–Milestone workflows,
                 enabling event streaming, metadata forwarding, and simulation of licensed VMS analytics features
                 for seamless operational deployment.
               </div>
+              </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
 
           </div>
