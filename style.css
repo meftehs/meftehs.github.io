@@ -473,6 +473,10 @@
       text-align: justify;
     }
 
+    li {
+      text-align: justify;
+    }
+
     .badge-row {
       display: flex;
       flex-wrap: wrap;
@@ -654,7 +658,7 @@
     /* collapsed state */
     .exp-text[data-collapsed="true"] {
       display: -webkit-box;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -686,3 +690,95 @@
       position: relative;
       z-index: 1;
     }
+
+/* Publications inside pill-item (LinkedIn-like, but same pill style) */
+.pub-pill {
+  background: #ffffff; /* keeps your clean card-like look */
+}
+
+.pub-venue {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pub-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.pub-abstract {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.pub-abstract[data-collapsed="true"]{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pub-more {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pub-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.is-hidden{
+  display:none !important;
+}
+
+.pill-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pill-link-inline{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pill-link-inline:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}

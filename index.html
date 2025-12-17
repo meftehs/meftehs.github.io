@@ -23,19 +23,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   const items = Array.from(document.querySelectorAll(".pill-item"));
 
+  function getTextBlock(item) {
+    // Experience uses .exp-text, publications use .pub-abstract
+    return item.querySelector(".exp-text") || item.querySelector(".pub-abstract");
+  }
+
   function needsToggle(el) {
+    // if no clamp CSS, this will always be false
     el.setAttribute("data-collapsed", "false");
     const full = el.scrollHeight;
+
     el.setAttribute("data-collapsed", "true");
     const clamped = el.getBoundingClientRect().height;
+
     return full > clamped + 2;
   }
 
   items.forEach(item => {
-    const text = item.querySelector(".exp-text");
+    const text = getTextBlock(item);
     const btn  = item.querySelector(".exp-toggle");
     if (!text || !btn) return;
 
+    // Ensure initial state
+    if (!text.getAttribute("data-collapsed")) {
+      text.setAttribute("data-collapsed", "true");
+    }
+
+    // Hide button if not needed
     if (!needsToggle(text)) {
       btn.classList.add("is-hidden");
       text.setAttribute("data-collapsed", "false");
@@ -45,9 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const collapsed = text.getAttribute("data-collapsed") === "true";
 
+      // Optional: close others
       items.forEach(other => {
         if (other === item) return;
-        const ot = other.querySelector(".exp-text");
+        const ot = getTextBlock(other);
         const ob = other.querySelector(".exp-toggle");
         if (ot && ob && !ob.classList.contains("is-hidden")) {
           ot.setAttribute("data-collapsed", "true");
@@ -61,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
 <body>
@@ -574,8 +590,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   <ul>
                     <li>
                       <strong>Technical Leadership &amp; Reporting:</strong>
+                      Managed and coordinated <strong>cross-disciplinary teams</strong> including
+                      <strong>front-end and back-end developers</strong>, as well as <strong>robotics and AI engineers</strong>,
+                      ensuring effective collaboration across software, perception, and embedded systems.
                       Led AI-focused workstreams and delivered <strong>weekly progress reports</strong> on AI advancements and milestones
-                      to the <strong>CTO</strong>, ensuring alignment, traceability, and on-time delivery.
+                      to the <strong>CTO</strong>, ensuring alignment, transparency, and timely delivery.
                     </li>
 
                     <li>
@@ -661,64 +680,101 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- PUBLICATIONS -->
     <section id="publications">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Scientific work</div>
-          <h2 class="section-title">Publications & Reviewing</h2>
-        </div>
-      </div>
+  <div class="section-heading">
+    <div>
+      <div class="section-kicker">Scientific work</div>
+      <h2 class="section-title">Publications & Reviewing</h2>
+    </div>
+  </div>
 
-      <div class="section-grid">
-        <div class="card">
-          <div class="card-title">Selected journal & conference papers</div>
-          <div class="pill-list">
-            <div class="pill-item">
-              <strong>Multispectral corner detector & local descriptor</strong>
-              <div class="pill-meta">
-                “A novel multispectral corner detector and a new local descriptor: an application to human posture recognition.”
-                Multimedia Tools and Applications, 2023.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>Lab-Depth HOG Descriptors for human postures</strong>
-              <div class="pill-meta">
-                “Learning Human Postures using Lab-Depth HOG Descriptors.” ICCCI 2023, Springer LNAI.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>Multispectral edge detector for occluded color images</strong>
-              <div class="pill-meta">
-                “A Novel Multispectral Lab-depth based Edge Detector for Color Images with Occluded Objects.”
-                VISAPP 2019.
-              </div>
-            </div>
-            <div class="pill-item">
-              <strong>Vision transformer for posture recognition</strong>
-              <div class="pill-meta">
-                “Human Posture Recognition based on a novel vision transformer using a multispectral Lab-D HoG Descriptor.”
-                AFJASSST, 2022.
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="section-grid">
+    <div class="card">
+      <div class="card-title">Selected journal & conference papers</div>
 
-        <div class="card">
-          <div class="card-title">Program committee & reviewing</div>
-          <p>
-            I regularly act as a reviewer for international conferences in AI and intelligent environments.
+      <div class="pill-list">
+
+        <div class="pill-item pub-pill">
+          <strong>A novel multispectral corner detector and a new local descriptor: an application to human posture recognition</strong>
+
+          <!-- <div class="pill-meta">
+            “”
+          </div> -->
+
+          <div class="pub-venue">Multimedia Tools and Applications · 2023</div>
+
+          <a class="pub-link" href="https://link.springer.com/article/10.1007/s11042-023-14788-1" target="_blank" rel="noopener noreferrer">
+            Show publication <span aria-hidden="true">↗</span>
+          </a>
+
+          <p class="pub-abstract" data-collapsed="true">
+            Human posture recognition is an important task for intelligent systems specially those performing action recognition. In this paper, we propose a novel multispectral corner detector and a new HOG-based multispectral local descriptor. First, we select salient features which are extracted from an edge image obtained by picking the maximum eigenvalue of the jacobian matrix. Second, we extract for each feature point a local descriptor which combines both the Lab colour channels and depth information in a well-posed way using the Jacobian matrix. Last, we conduct a one-against-all learning strategy using both an incremental Covariance-guided One-Class Support Vector Machine (iCOSVM) and a Convolutional Neural Network (CNN). Experimental results show that we outperform the state-of-the-art methods whether our descriptor is combined with iCOSVM and with CNN.
           </p>
-          <div class="pill-list" style="margin-top:8px;">
-            <div class="pill-item">
-              <a href="https://ecai2025.org/program-committee/" target="_blank" rel="noopener noreferrer">
-                <strong>ECAI</strong>
-              </a>
-              <div class="pill-meta">
-                European Conference on Artificial Intelligence (A ranking), 2025.
-              </div>
-            </div>
-          </div>
+
+          <button class="exp-toggle" type="button">Read more</button>
         </div>
-    </section>
+
+        <div class="pill-item pub-pill">
+          <strong>Learning Human Postures using Lab-Depth HOG Descriptors</strong>
+
+          <!-- <div class="pill-meta">
+            “.”
+          </div> -->
+
+          <div class="pub-venue">International Conference on Computational Collective Intelligence (ICCCI 2023) · Sep 15, 2023</div>
+
+          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-3-031-41456-5_42" target="_blank" rel="noopener noreferrer">
+            Show publication <span aria-hidden="true">↗</span>
+          </a>
+
+          <p class="pub-abstract" data-collapsed="true">
+            Human Posture Recognition is gaining increasing attention in the field of computer vision due to its promising applications in the areas of health care, human-computer interaction, and surveillance systems. This paper presents a novel method for human posture recognition by combining both color and depth images and feeding the resulting information into the vision transformer (ViT) model. We want to take advantage of integrating the Lab-D HOG descriptor [18] into the ViT architecture [8]. First, we compute the multispectral Lab-D edge detector by opting for the maximum eigenvalue of the multiplication of the jacobian matrix by its transpose. Second, we select the multispectral corner points by picking the minimum of the eigenvalues of the multispectral Harris matrix. Third, for each selected corner point, we compute a Lab-D HOG descriptor. Last, we feed the extracted Lab-D HOG descriptors into the transformer encoder/decoder by implementing two different strategies. Results show that we outperform state-of-the-art methods.
+          </p>
+
+          <button class="exp-toggle" type="button">Read more</button>
+        </div>
+
+        <div class="pill-item pub-pill">
+          <strong>A Novel Multispectral Lab-depth based Edge Detector for Color Images with Occluded Objects</strong>
+          <!-- <div class="pill-meta">
+            “”
+          </div> -->
+
+          <div class="pub-venue">VISAPP · 2019</div>
+
+          <a class="pub-link" href="https://www.scitepress.org/Papers/2019/73805/73805.pdf" target="_blank" rel="noopener noreferrer">
+            Show publication <span aria-hidden="true">↗</span>
+          </a>
+
+          <p class="pub-abstract" data-collapsed="true">
+            This paper presents a new method for edge detection based on both Lab color and depth images. The principal challenge of multispectral edge detection consists of integrating different information into one meaningful result, without requiring empirical parameters. Our method combines the Lab color channels and depth information in a well-posed way using the Jacobian matrix. Unlike classical multi-spectral edge detection methods using depth information, our method does not use empirical parameters. Thus, it is quite straightforward and efficient. Experiments have been carried out on Middlebury stereo dataset and several selected challenging images. Experimental results show that the proposed method outperforms recent relevant state-of-the-art methods.
+          </p>
+
+          <button class="exp-toggle" type="button">Read more</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Program committee & reviewing</div>
+      <p>I regularly act as a reviewer for international conferences in AI and intelligent environments.</p>
+      <div class="pill-list" style="margin-top:8px;">
+        <div class="pill-item">
+        <div class="pill-top">
+          <strong>ECAI</strong>
+
+          <a class="pill-link-inline" href="https://ecai2025.org/program-committee/" target="_blank" rel="noopener noreferrer">
+            Program committee ↗
+          </a>
+        </div>
+
+        <div class="pill-meta">European Conference on Artificial Intelligence (rank A) · 2025</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact">
@@ -743,16 +799,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="contact-tag">💼 GitHub · github.com/meftehs</div>
           </div>
           <div class="contact-note">
-            Feel free to reach out in English or French.
+            
           </div>
         </div>
 
         <div class="card">
           <div class="card-title">Quick summary</div>
           <p>
-            Ph.D.-level AI & Computer Vision profile with strong industrial experience in robotics and embedded systems.
-            I like projects where research and engineering are both required to reach production quality.
-          </p>
+            Computer Vision and Edge AI specialist with a Ph.D. background, focusing on turning complex visual data into reliable, real-time intelligence. Experienced in building high-performance detection systems, improving learning with limited labels, and analyzing model behavior through explainability tools. Strong track record of deploying AI solutions on embedded platforms for robotics and smart video applications, from prototyping to production.      </p>
         </div>
       </div>
     </section>
