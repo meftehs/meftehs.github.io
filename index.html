@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 Implemented custom bridging functions inspired by DeepStream SDK VPS–Milestone workflows,
                 enabling event streaming, metadata forwarding, and simulation of licensed VMS analytics features
                 for seamless operational deployment.
-              </div>
+                </div>
               </div>
               <button class="exp-toggle" type="button">Read more</button>
             </div>
@@ -436,37 +436,186 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="pill-list">
+
+            <div class="pill-item">
+
+              <strong>Intelligent Video Analysis (Day &amp; Night) – P-Guard Security Robot</strong>
+
+              <div class="pill-meta">
+                <div class="exp-text" data-collapsed="true">
+                  <p>
+                    I designed and deployed a robust <strong>AI-based intrusion detection system</strong> for the
+                    <strong>P-Guard autonomous security robot</strong>, leveraging <strong>four heterogeneous cameras</strong>
+                    (three optical and one thermal) to ensure reliable people detection and fence-intrusion monitoring under both
+                    <strong>daytime and nighttime</strong> conditions. The system was engineered for dynamic outdoor environments,
+                    addressing critical challenges such as <strong>robot and target motion</strong>, <strong>variable illumination</strong>,
+                    <strong>adverse weather</strong> (rain, fog, humidity), <strong>occlusions</strong>, and
+                    <strong>diverse human postures</strong> (standing, crouching, lying, walking, running), while maintaining
+                    <strong>low false-positive rates</strong> and <strong>real-time alarm triggering</strong>.
+                  </p>
+
+                  <p>
+                    To meet these constraints, I built a <strong>custom multi-modal dataset</strong> collected directly from the robot,
+                    capturing people at different distances, viewpoints, and partial visibilities across optical and thermal sensors.
+                    The dataset was manually annotated using <strong>LabelImg</strong> and used to fine-tune state-of-the-art detectors
+                    (including <strong>YOLO variants</strong> and <strong>Faster R-CNN</strong>) via transfer learning. After extensive
+                    benchmarking and on-robot inference tests, I selected <strong>YOLOv5s</strong> for its strong balance of accuracy
+                    and computational efficiency.
+                  </p>
+
+                  <p>
+                    The final solution was deployed on an <strong>NVIDIA Jetson Nano</strong> using the <strong>DeepStream SDK</strong>,
+                    enabling simultaneous real-time inference on all four streams. The model was optimized and exported as a
+                    <strong>TensorRT engine</strong> to minimize latency and maximize throughput. Detection metadata was transmitted via
+                    the <strong>Milestone Video Processing Service (VPS) Toolkit</strong> and integrated into
+                    <strong>Milestone XProtect VMS</strong>, where it was used to draw bounding boxes, trigger alarms, and generate
+                    events for end users—validating the system’s reliability and deployment readiness for real-world security scenarios.
+                  </p>
+                </div>
+              </div>
+              <button class="exp-toggle" type="button">Read more</button>
+            </div>
+
             <div class="pill-item">
               <strong>Autonomous Charging Station</strong>
               <div class="pill-meta">
-                Implemented cosses detection and tracking to automatically connect the robot to a charging station,
-                ensuring maximum autonomy using computer vision control on an X–Y table.
+                <div class="exp-text" data-collapsed="true">
+                  <p>
+                    I developed and deployed a <strong>traditional computer-vision</strong> based autonomous charging solution to reliably connect the robot to its
+                    docking station and maximize operational autonomy. The system detects the robot’s charging contacts (“cosses”) using
+                    <strong>OpenCV</strong> by identifying a simple <strong>green-light cue</strong>, then tracks this cue with the
+                    <strong>Lucas–Kanade optical flow</strong> method to robustly localize its center once the robot is positioned in
+                    front of the station.
+                  </p>
+                  <p>
+                    Based on the estimated target center, I designed a <strong>control law</strong> to drive the station’s
+                    <strong>X–Y table</strong> and precisely align the connector with the robot’s contacts. Once alignment is achieved,
+                    the system activates a <strong>relay</strong> to safely enable charging current, delivering an end-to-end closed-loop
+                    docking and charging workflow.
+                  </p>
+                </div>
               </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
 
             <div class="pill-item">
-              <strong>Intrusion Detection (Day &amp; Night)</strong>
+              <strong>Obstacle Detection, Distance Estimation, and Autonomous Avoidance</strong>
               <div class="pill-meta">
-                Designed and deployed a smart intrusion detection solution combining optical and thermal cameras,
-                running on NVIDIA Jetson Nano via DeepStream SDK, integrated with Milestone XProtect VMS for alarm generation.
+                <div class="exp-text" data-collapsed="true">
+                 <p>
+                  The <strong>P-Guard robot</strong> operates as a <strong>fully autonomous outdoor security platform</strong>,
+                  deployed across sites with heterogeneous characteristics such as industrial areas, logistics zones, and railway
+                  environments. In these dynamic and unstructured settings, the robot must patrol and perform surveillance while
+                  interacting safely and naturally with <strong>moving obstacles</strong> including <strong>trucks, trains, and
+                  vehicles</strong>, without disrupting its mission continuity.
+                </p>
+
+                <p>
+                  To address this challenge, I developed an <strong>obstacle detection and decision-making framework</strong>
+                  combining vision and LiDAR sensing. A dedicated dataset of truck images was collected and used to train a
+                  <strong>YOLOv7-based object detector</strong> for robust vehicle recognition in outdoor scenes. Once detected, the
+                  <strong>distance between the robot and the obstacle</strong> is estimated using a hybrid approach that leverages
+                  both the <strong>area of the detected bounding box</strong> and depth information provided by a
+                  <strong>Velodyne VLP-16 LiDAR</strong>, enabling reliable distance estimation at ranges exceeding
+                  <strong>5 meters</strong>.
+                </p>
+
+                <p>
+                  Based on the estimated distance and object dynamics, the robot autonomously adapts its behavior. When a detected
+                  vehicle lies within the robot’s field of view, a <strong>stopped vehicle</strong> is treated as a static obstacle
+                  and safely bypassed while patrol continues. Conversely, when a vehicle is in motion, the robot
+                  <strong>halts and waits</strong> until the path is clear before resuming its patrol. The proposed solution was
+                  validated through real-world outdoor trials, including <strong>train environments</strong>, demonstrating robust
+                  perception, safe decision-making, and seamless integration into the robot’s autonomous surveillance workflow.
+                </p> 
+                </div>
               </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
 
             <div class="pill-item">
-              <strong>Obstacle Detection &amp; Fence Anomaly Detection</strong>
+              <strong>Fence Anomaly Detection</strong>
               <div class="pill-meta">
-                Processed 3D LiDAR data for obstacle detection and classification; developed a solution to classify broken vs.
-                normal fences using Pix2Pix GAN, segmentation and CNN-based classification.
+                <div class="exp-text" data-collapsed="true">
+                  <p>
+                    I led a <strong>proof-of-concept study</strong> on <strong>fence anomaly detection</strong>, a problem that remains
+                    largely unexplored in the literature, where existing state-of-the-art works mainly address
+                    <strong>de-fencing</strong> rather than the detection of <strong>broken or damaged fences</strong>. The objective of
+                    this work was to evaluate the feasibility of automatically assessing fence integrity in real-world security
+                    scenarios.
+                  </p>
+
+                  <p>
+                    To support this study, we curated a dataset composed of images <strong>captured directly by the robot</strong> across
+                    diverse outdoor environments, complemented with additional broken-fence images collected from public sources. A
+                    <strong>Pix2Pix GAN</strong> was trained to generate <strong>fence masks</strong> from real images, enabling robust
+                    isolation of fence structures under varying visual conditions. The resulting masked images were further processed
+                    using <strong>adaptive Gaussian thresholding</strong> to emphasize structural discontinuities associated with fence
+                    damage.
+                  </p>
+
+                  <p>
+                    On top of this representation, we developed a <strong>ResNet-18–based classification model</strong> to distinguish
+                    between <strong>intact</strong> and <strong>broken fences</strong>. While the approach showed promising results during
+                    daytime, <strong>night-time detection using thermal cameras proved technically impractical</strong>, as fences would
+                    need to emit or retain sufficient heat to be visible—an assumption that is rarely realistic in operational
+                    conditions 😏. This limitation highlights the constraints of thermal sensing for static structures and motivates
+                    alternative sensing or illumination strategies for future work.
+                  </p>
+                </div>
               </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
 
             <div class="pill-item">
-              <strong>Project Management &amp; Automation</strong>
+              <strong>Project Management</strong>
               <div class="pill-meta">
-                Led several projects including mission scheduling for P-Guard, healthcare robot data analysis, Milestone–PGMS
-                integration, supervision of a PhD (INNOV-TMSDEVICE) awarded Best National Doctoral Thesis 2024, and
-                automation tests (PAT) using Python, Robot Framework and CI/CD tools.
+                <div class="exp-text" data-collapsed="true">
+                  <ul>
+                    <li>
+                      <strong>Technical Leadership &amp; Reporting:</strong>
+                      Led AI-focused workstreams and delivered <strong>weekly progress reports</strong> on AI advancements and milestones
+                      to the <strong>CTO</strong>, ensuring alignment, traceability, and on-time delivery.
+                    </li>
+
+                    <li>
+                      <strong>P-Guard Mission Scheduling:</strong>
+                      Led the design and implementation of a fully autonomous mission-scheduling framework, enabling P-Guard to execute
+                      patrol missions and operational scenarios <strong>without human intervention</strong>.
+                    </li>
+
+                    <li>
+                      <strong>Healthcare Robot Data Analysis:</strong>
+                      Developed a solution for <strong>multi-sensor data acquisition and analysis</strong> from a healthcare robot,
+                      supporting monitoring, diagnostics, and data-driven insights.
+                    </li>
+
+                    <li>
+                      <strong>Milestone–PGMS Integration:</strong>
+                      Led the full reproduction of the <strong>P-Guard Management System (PGMS)</strong> within the
+                      <strong>Milestone XProtect Smart Client</strong>, including the implementation and integration of the
+                      <strong>PGuard API and SDK</strong> for seamless control, monitoring, and interoperability.
+                    </li>
+
+                    <li>
+                      <strong>PhD Supervision (INNOV-TMSDEVICE – AI Development):</strong>
+                      Supervised the <strong>artificial intelligence development</strong> of a Ph.D. thesis under the
+                      <strong>MOBIDOC program</strong>, in collaboration with the <strong>Laboratoire de Mécanique de Sousse (LMS)</strong>,
+                      entitled <em>“Contribution to the development of an innovative device for objective quantification, analysis and
+                      prevention of musculoskeletal disorders (MSDs)”</em>, awarded <strong>Best National Doctoral Thesis of the Year 2024</strong>.
+                    </li>
+
+                    <li>
+                      <strong>P-Guard Automation Tests (PAT):</strong>
+                      Led the development of <strong>automated test suites</strong> using <strong>Python</strong>,
+                      <strong>Robot Framework</strong>, and <strong>CI/CD tools</strong> to validate 4G connectivity,
+                      WebRTC live video streaming, network traffic stress resilience, PGMS HMI compliance (unit tests vs. specifications),
+                      and end-to-end robot automation workflows.
+                    </li>
+                  </ul>
+                </div>
               </div>
+              <button class="exp-toggle" type="button">Read more</button>
             </div>
           </div>
         </div>
@@ -478,11 +627,16 @@ document.addEventListener("DOMContentLoaded", () => {
               <div>
                 <div class="card-title">Computer Vision Researcher</div>
                 <div class="card-subtitle">Sup’Com · Oct 2015 – Dec 2018</div>
-                <p>
-                    Research on human posture recognition, including multispectral descriptors and edge detection methods.
-                </p>
+
               </div>
-          </div>          
+          </div> 
+          <div class="pill-list">
+            <div class="pill-item">
+              <p>
+                Research on human posture recognition, including multispectral descriptors and edge detection methods.
+              </p>
+            </div>
+          </div>         
         </div>
 
         <div class="card">
@@ -490,12 +644,16 @@ document.addEventListener("DOMContentLoaded", () => {
               <img src="imgs/dotit.jpeg" alt="dotit Logo" class="company-logo">
               <div>
                 <div class="card-title">Computer Vision Developer</div>
-                <div class="card-subtitle">Dot It Edition · Aug 2014 – Oct 2015</div>
-                  <p>
-                    Developed computer vision components for various web and software projects, contributing to applications such
-                    as Yedess, GIREVE, AlMurafek and others.
-                  </p>
+                <div class="card-subtitle">Dot It Edition · Aug 2014 – Oct 2015</div>       
               </div>
+          </div>
+          <div class="pill-list">
+            <div class="pill-item">
+              <p>
+                Developed computer vision components for various mobile projects, contributing to applications such
+                as Yedess, GIREVE, AlMurafek and others.
+              </p>
+            </div>
           </div>
         </div>
       </div>
